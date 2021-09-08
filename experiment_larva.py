@@ -24,34 +24,36 @@ Parameters = dict(
     KC_SFA=0.05* nS, 
 
     # Neuron Parameters
-    C=100 * pF,  
-    CMBON = 100*pF,
-    CKC=30 * pF, 
-    gLKC=0.5 * nS, 
-    CPN=30 * pF, 
-    CLN=30 *pF,
-    CAPL=200 * pF,
-    gLPN=2.5 * nS,  
-    gL=5 * nS,  
-    EL=-60 * mV,  
-    ELPN=-59 * mV, 
-    ELLN=-59 * mV,  
-    ELKC=-55 * mV,  
-    VT=-35 * mV,  
-    VTPN=-30 * mV,  
-    VTLN=-30 * mV,  
-    VTKC=-35 * mV,  
-    VTAPL=-30 * mV,  
-    Vr=-60 * mV, 
-    VrPN=-59 * mV,  
-    VrLN=-59 * mV,  
-    VrKC=-55 * mV, 
-    VrAPL=-60 * mV, 
+    C=100 * pF,   # capacitance 
+    CMBON = 100*pF, # capacitance MBON 
+    CKC=30 * pF, # capacitance KC
+    CPN=30 * pF, # capacitance PN
+    CLN=30 *pF,# capacitance LN
+    CAPL=200 * pF, # capacitance APL
+   
+    gL=5 * nS, # leak conductance 
+    gLKC=0.5 * nS, # leak conductance KC
+    gLPN=2.5 * nS, # leak conductance PN
+    EL=-60 * mV, # leak potential
+    ELPN=-59 * mV, # leak potential PN
+    ELLN=-59 * mV,  # leak potential LN
+    ELKC=-55 * mV,  # leak potential KC
+    
+    VT=-35 * mV, # spike threshold 
+    VTPN=-30 * mV, # spike threshold PN
+    VTLN=-30 * mV,  # spike threshold LN
+    VTKC=-35 * mV,  # spike threshold KC
+    VTAPL=-30 * mV,  # spike threshold APL
+    Vr=-60 * mV, # resting potential
+    VrPN=-59 * mV,  # resting potential PN
+    VrLN=-59 * mV,  # resting potential LN
+    VrKC=-55 * mV, # resting potential KC
+    VrAPL=-60 * mV, # resting potential APL
 
-    tau_ref=2 * ms,  
-    delay_KCAPL=0 * ms, 
+    tau_ref=2 * ms, # refractory time 
+    delay_KCAPL=0 * ms, # synaptic delay
     delay_APLKC=0 * ms,
-    MBON_SFA=0.1 * nS,
+    MBON_SFA=0.1 * nS, 
     MBIN_SFA=0.1 * nS,
 
     # Dimensions
@@ -63,10 +65,10 @@ Parameters = dict(
     N_MBON=2,
 
     # Synaptic Parameters
-    Ee=0 * mV, 
-    Ei=-75 * mV,  
-    tau_syn_e=5 * ms,
-    tau_syn_i=10 * ms,
+    Ee=0 * mV, # excitatory synaptic potential
+    Ei=-75 * mV,  # inhibitory synaptic potential
+    tau_syn_e=5 * ms, # excitatory synaptic time constant
+    tau_syn_i=10 * ms, # inhibitory synaptic time constant
 
     # # weights 
     wORNinputORN=3 * nS, wORNPN=30 * nS, wORNLN=9 * nS,
