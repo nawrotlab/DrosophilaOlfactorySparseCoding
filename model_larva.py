@@ -18,9 +18,9 @@ def Model(Parameters):
     #ORN
     ORN_eqs = '''
         dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) - g_Ia*(E_Ia-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
-        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
+        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance 
         dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
-        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 'current'
+        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 
         I0 : amp
         '''
 
@@ -36,7 +36,7 @@ def Model(Parameters):
     #PN
     PN_eqs = '''
         dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
-        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
+        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance
         dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
         I0 : amp
         '''
@@ -53,9 +53,8 @@ def Model(Parameters):
     #LN
     LN_eqs = '''
        dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
-       dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
-       dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
-       dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 'current'
+       dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance 
+       dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance 
        I0 : amp
        '''
 
@@ -72,9 +71,9 @@ def Model(Parameters):
     #KC
     KC_eqs = '''
         dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) - g_Ia*(E_Ia-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
-        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
+        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance
         dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
-        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 'current'
+        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 
         I0 : amp
         '''
 
