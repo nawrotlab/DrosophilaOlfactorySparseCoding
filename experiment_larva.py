@@ -2,13 +2,12 @@ from brian2 import *
 from model_larva import Model
 import numpy as np
 from AttrDict import AttrDict
-import os
 from stimulus import gamma
 from joblib import Parallel, delayed
 from elephant.spike_train_generation import homogeneous_gamma_process
 from quantities import Hz as qHz
 from quantities import  ms as qms
-import analysis_tools
+
 
 safe = True
 save_path = "path"
@@ -21,7 +20,8 @@ Parameters = dict(
     # sparseness mechanisms
     lateral_inhibition_enabled=1, # 0 or 1
     APL_inhibition= 0,  # 0 or 1
-    KC_SFA=0.05* nS, 
+    KC_SFA=0.05* nS, # conductance adaptation
+    ORN_SFA= 0.1 * nS, # conductance adaptation
 
     # Neuron Parameters
     C=100 * pF,   # capacitance 
@@ -53,6 +53,7 @@ Parameters = dict(
     tau_ref=2 * ms, # refractory time 
     delay_KCAPL=0 * ms, # synaptic delay
     delay_APLKC=0 * ms,
+  
 
     # Dimensions
     N_glo=21,
