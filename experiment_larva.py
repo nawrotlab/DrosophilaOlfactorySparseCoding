@@ -53,16 +53,12 @@ Parameters = dict(
     tau_ref=2 * ms, # refractory time 
     delay_KCAPL=0 * ms, # synaptic delay
     delay_APLKC=0 * ms,
-    MBON_SFA=0.1 * nS, 
-    MBIN_SFA=0.1 * nS,
 
     # Dimensions
     N_glo=21,
     ORNperGlo=1,
-    N_MBINp=1,  
-    N_MBINn=1, 
     N_KC=72,
-    N_MBON=2,
+   
 
     # Synaptic Parameters
     Ee=0 * mV, # excitatory synaptic potential
