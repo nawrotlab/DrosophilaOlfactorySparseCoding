@@ -35,16 +35,15 @@ def Model(Parameters):
 
     #PN
     PN_eqs = '''
-        dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) - g_Ia*(E_Ia-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
+        dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
         dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
         dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
-        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 'current'
         I0 : amp
         '''
 
     neuron_modelPN = dict()
-    neuron_modelPN['model'] = Equations(PN_eqs, DeltaT=1 * mV, g_l=Parameters['gLPN'], E_l=Parameters['ELPN'], E_e=Parameters['Ee'], E_i=Parameters['Ei'], E_Ia=Parameters['EIa'],C_m=Parameters['CPN'],
-                                        tau_e=Parameters['tau_syn_e'], tau_i=Parameters['tau_syn_i'], tau_Ia=Parameters['tau_Ia'])
+    neuron_modelPN['model'] = Equations(PN_eqs, DeltaT=1 * mV, g_l=Parameters['gLPN'], E_l=Parameters['ELPN'], E_e=Parameters['Ee'], E_i=Parameters['Ei'],C_m=Parameters['CPN'],
+                                        tau_e=Parameters['tau_syn_e'], tau_i=Parameters['tau_syn_i'])
     neuron_modelPN['threshold'] = 'v > VTPN'
     neuron_modelPN['reset'] = 'v = VrPN'
     neuron_modelPN['refractory'] = Parameters.get('tau_ref')
@@ -53,7 +52,7 @@ def Model(Parameters):
 
     #LN
     LN_eqs = '''
-       dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) - g_Ia*(E_Ia-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
+       dv/dt = (g_l*(E_l-v) + g_e*(E_e-v) - g_i*(E_i-v) + I0)/C_m    : volt (unless refractory) # Ia is the spike triggered adaptation
        dg_e/dt = -g_e/tau_e  : siemens  # post-synaptic exc. conductance # synapses
        dg_i/dt = -g_i/tau_i  : siemens  # post-synaptic inh. conductance
        dg_Ia/dt = -g_Ia/tau_Ia : siemens # conductance adaptation 'current'
@@ -61,8 +60,8 @@ def Model(Parameters):
        '''
 
     neuron_modelLN = dict()
-    neuron_modelLN['model'] = Equations(LN_eqs, DeltaT=1 * mV, g_l=Parameters['gLPN'], E_l=Parameters['ELLN'], E_e=Parameters['Ee'], E_i=Parameters['Ei'], E_Ia=Parameters['EIa'],
-                                        C_m=Parameters['CLN'], tau_e=Parameters['tau_syn_e'], tau_i=Parameters['tau_syn_i'], tau_Ia=Parameters['tau_Ia'])
+    neuron_modelLN['model'] = Equations(LN_eqs, DeltaT=1 * mV, g_l=Parameters['gLPN'], E_l=Parameters['ELLN'], E_e=Parameters['Ee'], E_i=Parameters['Ei'], 
+                                        C_m=Parameters['CLN'], tau_e=Parameters['tau_syn_e'], tau_i=Parameters['tau_syn_i'])
     neuron_modelLN['threshold'] = 'v > VTLN'
     neuron_modelLN['reset'] = 'v = VrLN'
     neuron_modelLN['refractory'] = Parameters.get('tau_ref')
